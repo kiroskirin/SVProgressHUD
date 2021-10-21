@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "SVProgressHUD",
     platforms: [
-        .iOS("8.3"), .tvOS("9.0")
+        .iOS(.v10), .tvOS(.v10),
     ],
     products: [
         .library(
