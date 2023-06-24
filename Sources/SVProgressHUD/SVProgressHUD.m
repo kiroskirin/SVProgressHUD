@@ -68,11 +68,11 @@ static const CGFloat SVProgressHUDLabelSpacing = 8.0f;
     static dispatch_once_t once;
     
     static SVProgressHUD *sharedView;
-#if !defined(SV_APP_EXTENSIONS)
-    dispatch_once(&once, ^{ sharedView = [[self alloc] initWithFrame:[[UIApplication sharedApplication] keyWindow].bounds]; });
-#else
+//#if !defined(SV_APP_EXTENSIONS)
+//    dispatch_once(&once, ^{ sharedView = [[self alloc] initWithFrame:[[UIApplication sharedApplication] keyWindow].bounds]; });
+//#else
     dispatch_once(&once, ^{ sharedView = [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; });
-#endif
+//#endif
     return sharedView;
 }
 
@@ -563,16 +563,16 @@ static const CGFloat SVProgressHUDLabelSpacing = 8.0f;
     double animationDuration = 0.0;
 
 #if !defined(SV_APP_EXTENSIONS) && TARGET_OS_IOS
-    self.frame = [[UIApplication sharedApplication] keyWindow].bounds;
-    UIInterfaceOrientation orientation = UIApplication.sharedApplication.statusBarOrientation;
-#elif !defined(SV_APP_EXTENSIONS) && !TARGET_OS_IOS
-    self.frame= [UIApplication sharedApplication].keyWindow.bounds;
-#else
-    if (self.viewForExtension) {
+//    self.frame = [[UIApplication sharedApplication] keyWindow].bounds;
+//    UIInterfaceOrientation orientation = UIApplication.sharedApplication.statusBarOrientation;
+//#elif !defined(SV_APP_EXTENSIONS) && !TARGET_OS_IOS
+//    self.frame= [UIApplication sharedApplication].keyWindow.bounds;
+//#else
+//    if (self.viewForExtension) {
         self.frame = self.viewForExtension.frame;
-    } else {
-        self.frame = UIScreen.mainScreen.bounds;
-    }
+//    } else {
+//        self.frame = UIScreen.mainScreen.bounds;
+//    }
 #if TARGET_OS_IOS
     UIInterfaceOrientation orientation = CGRectGetWidth(self.frame) > CGRectGetHeight(self.frame) ? UIInterfaceOrientationLandscapeLeft : UIInterfaceOrientationPortrait;
 #endif
@@ -1142,12 +1142,12 @@ static const CGFloat SVProgressHUDLabelSpacing = 8.0f;
     }
     
     // Update frames
-#if !defined(SV_APP_EXTENSIONS)
-    CGRect windowBounds = [[UIApplication sharedApplication] keyWindow].bounds;
-    _controlView.frame = windowBounds;
-#else
+//#if !defined(SV_APP_EXTENSIONS)
+//    CGRect windowBounds = [[UIApplication sharedApplication] keyWindow].bounds;
+//    _controlView.frame = windowBounds;
+//#else
     _controlView.frame = [UIScreen mainScreen].bounds;
-#endif
+//#endif
     
     return _controlView;
 }
