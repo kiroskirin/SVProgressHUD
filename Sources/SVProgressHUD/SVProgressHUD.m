@@ -562,21 +562,21 @@ static const CGFloat SVProgressHUDLabelSpacing = 8.0f;
     CGFloat keyboardHeight = 0.0f;
     double animationDuration = 0.0;
 
-#if !defined(SV_APP_EXTENSIONS) && TARGET_OS_IOS
+//#if !defined(SV_APP_EXTENSIONS) && TARGET_OS_IOS
 //    self.frame = [[UIApplication sharedApplication] keyWindow].bounds;
 //    UIInterfaceOrientation orientation = UIApplication.sharedApplication.statusBarOrientation;
 //#elif !defined(SV_APP_EXTENSIONS) && !TARGET_OS_IOS
 //    self.frame= [UIApplication sharedApplication].keyWindow.bounds;
 //#else
 //    if (self.viewForExtension) {
-        self.frame = self.viewForExtension.frame;
+//        self.frame = self.viewForExtension.frame;
 //    } else {
-//        self.frame = UIScreen.mainScreen.bounds;
+        self.frame = UIScreen.mainScreen.bounds;
 //    }
 #if TARGET_OS_IOS
     UIInterfaceOrientation orientation = CGRectGetWidth(self.frame) > CGRectGetHeight(self.frame) ? UIInterfaceOrientationLandscapeLeft : UIInterfaceOrientationPortrait;
 #endif
-#endif
+//#endif
     
 #if TARGET_OS_IOS
     // Get keyboardHeight in regard to current state
