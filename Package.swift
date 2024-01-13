@@ -15,6 +15,10 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "SVProgressHUD")
+            name: "SVProgressHUD",
+            swiftSettings: [
+                .unsafeFlags(["-no-verify-emitted-module-interface"], .when(configuration: .release))
+            ]
+        )
     ]
 )
